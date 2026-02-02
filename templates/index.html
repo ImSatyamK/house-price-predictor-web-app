@@ -1,26 +1,61 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>House Price Predictor</title>
+    <title>House Price Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>House Price Prediction</h1>
 
-    <form method="POST">
-        <label>House Size (sqft):</label><br>
-        <input type="number" name="size" required><br><br>
+<h1>House Price Prediction</h1>
 
-        <label>Bedrooms:</label><br>
-        <input type="number" name="bedrooms" required><br><br>
+<form method="POST">
 
-        <label>Age of House:</label><br>
-        <input type="number" name="age" required><br><br>
+    <label>Crime Rate (per capita):</label><br>
+    <input type="number" step="any" name="crime_rate" required><br><br>
 
-        <button type="submit">Predict</button>
-    </form>
+    <label>Residential Land (% zoned for large lots):</label><br>
+    <input type="number" step="any" name="residential_land" required><br><br>
 
-    {% if prediction is not none %}
-        <h2>Predicted Price: {{ prediction }}</h2>
-    {% endif %}
+    <label>Industrial Area (% of land):</label><br>
+    <input type="number" step="any" name="industrial_area" required><br><br>
+
+    <label>Near River (0 = No, 1 = Yes):</label><br>
+    <input type="number" min="0" max="1" name="near_river" required><br><br>
+
+    <label>Air Pollution Level (NOx concentration):</label><br>
+    <input type="number" step="any" name="air_pollution" required><br><br>
+
+    <label>Average Number of Rooms:</label><br>
+    <input type="number" step="any" name="avg_rooms" required><br><br>
+
+    <label>Old Houses (% built before 1940):</label><br>
+    <input type="number" step="any" name="old_houses" required><br><br>
+
+    <label>Distance to Employment Centers:</label><br>
+    <input type="number" step="any" name="distance_to_city" required><br><br>
+
+    <label>Highway Accessibility Index:</label><br>
+    <input type="number" step="any" name="highway_access" required><br><br>
+
+    <label>Property Tax Rate:</label><br>
+    <input type="number" step="any" name="property_tax" required><br><br>
+
+    <label>Pupil–Teacher Ratio:</label><br>
+    <input type="number" step="any" name="pupil_teacher_ratio" required><br><br>
+
+    <label>Demographic Index (B):</label><br>
+    <input type="number" step="any" name="black_population_index" required><br><br>
+
+    <label>Lower Income Population (%):</label><br>
+    <input type="number" step="any" name="lower_income_pct" required><br><br>
+
+    <button type="submit">Predict Price</button>
+
+</form>
+
+{% if prediction is not none %}
+    <h2>Predicted House Price: {{ prediction }}</h2>
+{% endif %}
+
 </body>
 </html>
